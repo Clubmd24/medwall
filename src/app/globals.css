@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --luxury-bg: #0b0b0b;
+  --gold: #d4af5f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-luxury-bg text-white antialiased;
+}
+
+::selection {
+  @apply bg-gold/30 text-white;
+}
