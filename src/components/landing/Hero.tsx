@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import { SmartImage } from "@/components/ui/SmartImage";
+
+const HERO_IMAGE = "/images/hero-media-wall.jpg";
 
 function MediaWallMockup() {
   return (
@@ -10,12 +13,22 @@ function MediaWallMockup() {
       <div className="absolute inset-0 bg-grid-fade bg-[length:24px_24px] opacity-40" />
       <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
       <div className="absolute inset-0 flex flex-col p-6 sm:p-8">
-        <div className="flex flex-1 flex-col justify-end rounded-xl border border-white/5 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-4 sm:p-6">
+        <div className="relative flex flex-1 flex-col justify-end rounded-xl border border-white/5 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 sm:p-6">
           <div className="mx-auto mb-4 flex w-full max-w-[90%] flex-col gap-3">
-            <div className="aspect-video w-full rounded-lg border border-white/10 bg-gradient-to-br from-zinc-800/90 to-zinc-950 shadow-inner ring-1 ring-white/5">
-              <div className="flex h-full items-center justify-center">
-                <div className="h-px w-1/3 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-              </div>
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-zinc-800/90 to-zinc-950 shadow-inner ring-1 ring-white/5">
+              <SmartImage
+                src={HERO_IMAGE}
+                alt="Premium living room media wall with integrated lighting"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                imageClassName="rounded-lg"
+                fallback={
+                  <div className="flex h-full min-h-[8rem] w-full items-center justify-center bg-gradient-to-br from-zinc-800/90 to-zinc-950">
+                    <div className="h-px w-1/3 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+                  </div>
+                }
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
             </div>
             <div className="flex h-2 w-full overflow-hidden rounded-full">
               <motion.div
